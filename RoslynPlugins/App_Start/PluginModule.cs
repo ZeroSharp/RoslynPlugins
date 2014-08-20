@@ -299,10 +299,11 @@ namespace RoslynPlugins.App_Start
 
         /// <summary>
         /// Compiles source code at runtime into an assembly. The assembly will automatically include all
-        /// the same assembly references as NetMWC, so you can call any function which is available from
-        /// within NetMWC. Compilation errors and warnings can be obtained from the Errors and Warnings properties.
+        /// the same assembly references as the main RoslynPlugins assembly, so you can call any function which is
+        /// available from within RoslynPlugins. Compilation errors and warnings can be obtained from the Errors and
+        /// Warnings properties.
         /// </summary>
-        /// <param name="sourceCode">Source code such as the contents of AbnAmroGenerator.cs</param>
+        /// <param name="script">Source code such as the contents of HelloWorldGenerator.cs</param>
         /// <returns>The compiled assembly in memory. If there were errors, it will return null.</returns>
         public Assembly Compile(string name, string script)
         {
@@ -410,7 +411,7 @@ namespace RoslynPlugins.App_Start
 
     public class PluginModule : NinjectModule
     {
-        private IGenerator CreateInstance(IContext context)
+        private IGenerator CreateGenerator(IContext context)
         {
             PluginLocator pluginLocator = context.Kernel.Get<PluginLocator>();
             Type roslynPluginType = pluginLocator.Locate<IGenerator>();
@@ -419,7 +420,7 @@ namespace RoslynPlugins.App_Start
 
         public override void Load()
         {
-            Bind<IGenerator>().ToMethod(context => CreateInstance(context));
+            Bind<IGenerator>().ToMethod(context => CreateGenerator(context));
 
             /// If you have a lot of IGenerator subclasses, you can use Ninject's
             /// convention based module.
@@ -434,7 +435,6 @@ namespace RoslynPlugins.App_Start
             //    .InheritedFrom(typeof(IGenerator))
             //    .BindToPluginOrDefaultInterfaces()); //This is a custom extension method
 
-            //Bind<IPaymentInstructionGeneratorFactory>().To<PaymentInstructionGeneratorFactory>();
             Bind<IPluginProvider>().To<PluginProvider>();
             Bind<PluginAssemblyDictionary>().ToSelf().InSingletonScope();
             Bind<IAssemblyReferenceCollector>().To<AssemblyReferenceCollector>();
