@@ -11,10 +11,10 @@ namespace RoslynPlugins.Controllers
     }
 
     public class HelloWorldGenerator : IGenerator
-    {        
+    {
         public string Generate()
         {
-            return "Hello World";
+            return "Hello World!";
         }
     }
 
@@ -30,13 +30,15 @@ namespace RoslynPlugins.Controllers
 
         public IGenerator _Generator { get; private set; }
 
-        // 
-        // GET: /HelloWorld/ 
-        public string Index()
+        //
+        // GET: /HelloWorld/
+        public ActionResult Index()
         {
             string output = _Generator.Generate();
             string sanitizedOutput = HttpUtility.HtmlEncode(output);
-            return sanitizedOutput;
+
+            ViewBag.GeneratorOutput = sanitizedOutput;
+            return View();
         }
-    } 
+    }
 }

@@ -196,6 +196,7 @@
     <Content Include="Views\Plugins\Details.cshtml" />
     <Content Include="Views\Plugins\Edit.cshtml" />
     <Content Include="Views\Plugins\Index.cshtml" />
+    <Content Include="Views\HelloWorld\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
