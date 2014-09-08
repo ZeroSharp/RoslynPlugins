@@ -143,10 +143,12 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\NinjectWebCommon.cs" />
-    <Compile Include="App_Start\PluginModule.cs" />
+    <Compile Include="Ninject\NinjectWebCommon.cs" />
+    <Compile Include="Ninject\PluginModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
+    <Compile Include="Generators\IGenerator.cs" />
+    <Compile Include="Generators\HelloWorldGenerator.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PluginsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -200,7 +202,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\HelloWorld\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

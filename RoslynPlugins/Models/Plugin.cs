@@ -13,8 +13,7 @@ namespace RoslynPlugins.Models
         [Required]
         public string Version { get; set; }
         [Required]
-        [MaxLength]
-        [DataType(DataType.MultilineText)] 
+        [DataType(DataType.MultilineText)]
         public string Script { get; set; }
     }
 

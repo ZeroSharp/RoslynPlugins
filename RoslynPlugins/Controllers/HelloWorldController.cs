@@ -5,19 +5,6 @@ using System.Web.Mvc;
 
 namespace RoslynPlugins.Controllers
 {
-    public interface IGenerator
-    {
-        string Generate();
-    }
-
-    public class HelloWorldGenerator : IGenerator
-    {
-        public string Generate()
-        {
-            return "Hello World!";
-        }
-    }
-
     public class HelloWorldController : Controller
     {
         public HelloWorldController(IGenerator generator)
