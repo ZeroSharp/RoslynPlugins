@@ -155,6 +155,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Plugin.cs" />
+    <Compile Include="Plugins\AssemblyExplorer.cs" />
+    <Compile Include="Plugins\AssemblyReferenceCollector.cs" />
+    <Compile Include="Plugins\PluginLocator.cs" />
+    <Compile Include="Plugins\PluginSnippetContainer.cs" />
+    <Compile Include="Plugins\PluginAssemblyDictionary.cs" />
+    <Compile Include="Plugins\PluginCompilationException.cs" />
+    <Compile Include="Plugins\PluginLoader.cs" />
+    <Compile Include="Plugins\PluginProvider.cs" />
+    <Compile Include="Plugins\PluginSnippetCompiler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
